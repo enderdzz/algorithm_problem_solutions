@@ -1,21 +1,11 @@
-#include <stdio.h>
-#include <string.h>
 #include <iostream>
 #include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <string>
-#include <cmath>
-#include <cstdlib>
-#include <vector>
-#include <queue>
 #include <set>
-#include <map>
+#define ll long long 
 
 using namespace std;
 
-multiset<int> eg;
-int temp[100100];
+multiset<ll> eg;
 
 int main()
 {
@@ -29,22 +19,23 @@ int main()
 		eg.insert(t);
 	}
 	int te = n-k;
-	int sum = 0 ;
-	multiset<int>::iterator iter = eg.begin();
+	ll sum = 0;
+	multiset<ll>::iterator iter = eg.begin();
+	if(n <= k){
+		multiset<ll>::reverse_iterator iter2;
+		cout<<*eg.rbegin()<<endl;
+		return 0;
+	}
 	while(te--){
-		sum = 0;
-		int cnt = 0 ;
-		for(iter = eg.begin(); iter != eg.end()&& cnt<2 ; iter++){
-			sum+=*iter;
-			//cout<<*iter<<endl;
-			cnt++;
-			eg.erase(eg.lower_bound(*iter));
-		}
+		sum = *eg.begin();
+		//cout<<"++++++"<<*eg.begin()<<endl;
+		eg.erase(eg.lower_bound(sum));
+		sum += *eg.begin();
+		//cout<<"------"<<*eg.begin()<<endl;
+		eg.erase(eg.lower_bound(*eg.begin()));
 		eg.insert(sum);
 	}
-	for(iter = eg.begin();iter != eg.end(); iter++){
-		temp[k++]=*iter;
-	}
-	cout<<temp[k-1]<<endl;
+	multiset<ll>::reverse_iterator iter2 = eg.rbegin();
+	cout<<*iter2<<endl;
 	return 0;
 }
