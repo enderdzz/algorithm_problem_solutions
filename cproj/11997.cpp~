@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+#include <string>
+#include <cmath>
+#include <cstdlib>
+#include <vector>
+#include <queue>
+#include <set>
+#include <map>
+#define ll long long
+using namespace std;
+
+const int N = 750;
+
+int k;
+ll a[N][N];
+priority_queue<ll, vector<ll>, greater<ll> > q;
+
+void slove(){
+	int m = 1;
+	while(m < k){
+		int i = 0, r = 0, s = 0;		
+		while(i < k){
+			if(r<k&&s<k)q.push(a[0][r]+a[m][s]);
+			i++;	
+				
+			if(a[0][r+1]+a[m][s]>a[0][r]+a[m][s+1])s++;
+			else r++;
+			if(r>=k){r = k-1;s++;}
+			if(s>=k){s = k-1;r++;}
+		}
+		for(i = 0; i < k; i++){
+			a[0][i] = q.top();
+			q.pop();
+		}
+		while(!q.empty()){q.pop();}
+		m++;
+	}
+}
+
+int main()
+{
+	//freopen("in.txt","r",stdin);
+	//freopen("out.txt","w",stdout);
+	while(cin>>k){
+		for(int i = 0; i < k; i++){
+			for(int j = 0; j < k; j++){
+				cin>>a[i][j];
+			}
+			sort(a[i], a[i]+k);
+		}
+		slove();
+		for(int i = 0; i < k-1; i++){
+			cout<<a[0][i]<<" ";
+		}
+
+		cout<<a[0][k-1]<<endl;
+	}
+	return 0;
+}

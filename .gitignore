@@ -61,3 +61,6 @@
 
 # Debug files
 *.dSYM/
+
+# Java
+*.class
