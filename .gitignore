@@ -64,3 +64,6 @@
 
 # Java
 *.class
+# BackUp files
+.*~
+
