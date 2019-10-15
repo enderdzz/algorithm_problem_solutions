@@ -1,6 +1,6 @@
 # algorithm_problem_solutions
 
-Problems derive from some competitive algorithm contests and other places.
+Problems derive from some competitive programming contests and other places.
 
 + Codeforces (still alive)
 + Bestcoder/BZOJ/POJ (old school)
@@ -10,4 +10,4 @@ Problems derive from some competitive algorithm contests and other places.
 + met in the life
 
 But now, here is becoming a playground for me to learn different languages by solving algorithm problems!
-Especially Go & Rust & Haskell <3
+Especially Go & Rust & Haskell & Kotlin(maybe) <3
