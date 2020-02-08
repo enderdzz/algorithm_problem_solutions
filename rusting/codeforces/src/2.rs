@@ -1,6 +1,6 @@
 use std::io::{stdin, BufRead};
 
-#[inline]
+#[inline] // #[inline(always)] is not a good idea.
 fn solve(x: u32, y: u32) -> bool {
     match x {
         0 => unreachable!(),
