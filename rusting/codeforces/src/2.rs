@@ -6,7 +6,7 @@ fn solve(x: u32, y: u32) -> bool {
         0 => unreachable!(),
         1 => y == 1,
         2 | 3 => y < 4,
-        _ => true
+        _ => true,
     }
 }
 fn main(){
